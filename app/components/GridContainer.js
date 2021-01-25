@@ -1,36 +1,25 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { View, StyleSheet, Text } from 'react-native'
 import { FlatGrid } from 'react-native-super-grid'
-import { Feather } from '@expo/vector-icons'
 
+import { OrderData } from '../Data/Data'
 import colors from '../config/colors';
+import PickerContainer from './PickerContainer';
 
 const GridContainer = () => {
 
-    const [items, setItems] = useState([
-        { title: 'ORDERS', value: "20" },
-        { title: 'TOTAL SALES', value: '₹3,012' },
-        { title: 'STORE VIEWS', value: '401' },
-        { title: 'PRODUCT VIEWS', value: '19,121' },
-    ]);
-
     return (
         <View style={styles.container} >
-
-            <View style={styles.pickerContainer} >
-                <Text style={styles.header} >Overview</Text>
-                <View style={styles.iconContainer} >
-                    <Text style={styles.itemName} >Last Week</Text>
-                    <Feather name="chevron-down" size={24} color={colors.text} />
-                </View>
-            </View>
-
+            <PickerContainer
+                iconName="chevron-down"
+                title="Overview"
+                timeInterval="Last Week"
+            />
             <FlatGrid
+                scrollEnabled={false}
                 itemDimension={130}
-                data={items}
+                data={OrderData}
                 style={styles.gridView}
-                // staticDimension={300}
-                // fixed
                 spacing={10}
                 renderItem={({ item }) => (
                     <View style={styles.itemContainer}>
@@ -48,20 +37,14 @@ const styles = StyleSheet.create({
     container: {
         top: 100,
         flex: 1,
+        // backgroundColor: "red",
         // paddingTop: 100
         marginTop: 10,
+        marginBottom: 90
     },
     gridView: {
         // backgroundColor: "blue",
         flex: 1,
-    },
-    header: {
-        fontSize: 20,
-        fontWeight: "bold"
-    },
-    iconContainer: {
-        justifyContent: "center",
-        flexDirection: "row"
     },
     itemContainer: {
         backgroundColor: colors.white,
@@ -82,14 +65,6 @@ const styles = StyleSheet.create({
         color: 'black',
         fontWeight: "bold"
     },
-    pickerContainer: {
-        // backgroundColor: "red",
-        marginRight: 20,
-        height: 50,
-        left: 12,
-        top: 20,
-        flexDirection: "row",
-        justifyContent: "space-between"
-    }
+
 })
 export default GridContainer

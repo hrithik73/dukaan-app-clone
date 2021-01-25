@@ -2,11 +2,14 @@ import React from 'react'
 import { View, StyleSheet, Text } from 'react-native';
 import colors from '../config/colors';
 
-const Tab = ({ title, color }) => {
+const Tab = ({ item }) => {
+
+    let color = item.id === "0" ? color = colors.primary : colors.tabcolor
+    let textColor = color === colors.primary ? "white" : colors.text
 
     return (
-        <View style={styles.container} >
-            <Text style={styles.text}  >{title}</Text>
+        <View style={[styles.container, { backgroundColor: color }]} >
+            <Text style={[styles.text, { color: textColor }]}  >{item.title}</Text>
         </View>
     );
 }
@@ -19,7 +22,6 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         paddingHorizontal: 25,
-        backgroundColor: colors.tabcolor,
         height: 40
     },
     text: {

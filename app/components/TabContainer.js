@@ -15,7 +15,7 @@ const TabContainer = ({ Data }) => {
                 data={Data}
                 keyExtractor={(item) => item.id}
                 renderItem={({ item }) => (
-                    <Tab title={item.title} />
+                    <Tab item={item} />
                 )}
             />
         </View>
@@ -24,9 +24,10 @@ const TabContainer = ({ Data }) => {
 
 const styles = StyleSheet.create({
     container: {
+        left: 10,
         // flex: 1,
         height: 60,
-        // backgroundColor: "red",D
+        // backgroundColor: "red",
         justifyContent: "center",
         alignItems: "center"
     },
