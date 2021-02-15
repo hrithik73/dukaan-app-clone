@@ -20,7 +20,7 @@
 
 ## How to Run 🚀
 
-- Clone the repo `git clone https://github.com/hrithik73/dukaan-app-clone.git`
+- Clone the repo `git clone https://github.com/hrithik73/dukaan-app-clone.git` and do `cd` 
 - Install the dependicies `npm install or yarn install`
 - Run it `npm start or expo start`
 - Scan the QR code in expo client app on your phone
